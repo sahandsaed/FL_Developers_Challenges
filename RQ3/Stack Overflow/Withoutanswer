@@ -1,0 +1,16 @@
+SELECT 
+  COUNT(*) AS total_posts, 
+  SUM(
+    CASE WHEN acceptedanswerid IS NULL THEN 1 ELSE 0 END
+  ) AS posts_without_accepted, 
+  (
+    SUM(
+      CASE WHEN acceptedanswerid IS NULL THEN 1 ELSE 0 END
+    ) * 100.0 / COUNT(*)
+  ) AS percentage_without_accepted 
+from 
+  posts 
+where 
+  id in (
+78985318,
+78985999)

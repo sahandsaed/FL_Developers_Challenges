@@ -1,0 +1,18 @@
+with diffs as
+(select cast(a.creationdate - q.creationdate as float)*24 as d from posts q
+join posts a on a.id = q.acceptedanswerid and q.acceptedanswerid IS NOT NULL and 
+q.id in 
+(
+77874472,
+77876777,
+77879326,
+))
+
+SELECT
+(
+ (SELECT MAX(d) FROM
+   (SELECT TOP 50 PERCENT d FROM diffs ORDER BY d) AS BottomHalf)
+ +
+ (SELECT MIN(d) FROM
+   (SELECT TOP 50 PERCENT d FROM diffs ORDER BY d DESC) AS TopHalf)
+) / 2 AS Median
