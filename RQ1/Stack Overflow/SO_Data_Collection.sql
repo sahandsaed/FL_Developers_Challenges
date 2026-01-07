@@ -1,0 +1,1 @@
+select * from posts where tags like '%TAG_NAME%'
