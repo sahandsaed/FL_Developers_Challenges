@@ -1,0 +1,1 @@
+The distribution of question types differed significantly between Stack Overflow and GitHub, chi-square(3, N = 9,611) = 224.30, p < 0.001, Cramér's V = 0.153.
